@@ -1,0 +1,197 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏪 Grocery Store Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.0/lux/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z3JvY2VyeXxlbnwwfHwwfHx8MA==');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .card {
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.85); /* Less white */
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .btn {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .btn-order {
+            background-color: #198754;
+            color: white;
+        }
+
+        .btn-view {
+            background-color: #0dcaf0;
+            color: white;
+        }
+
+        .btn-manage {
+            background-color: #6f42c1;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏪 Grocery Store Management</h1>
+
+        
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>🛒 Place Order</h4>
+                <p>Build and save new customer orders easily.</p>
+                <a href="order.html" class="btn btn-order">Place Order</a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>📦 View Orders</h4>
+                <p>Review past orders and their summaries.</p>
+                <a href="view_orders.html" class="btn btn-view">View Order Details</a>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>🛠️ Manage Products</h4>
+                <p>Edit or remove existing products from inventory.</p>
+                <a href="manage-product.html" class="btn btn-manage">Manage Products</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="{{ url_for('static', filename='js/packages/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom/dashboard.js') }}"></script>
+     -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏪 Grocery Store Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.0/lux/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1534723452862-4c874018d66d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z3JvY2VyeXxlbnwwfHwwfHx8MA==');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .card {
+            margin: 20px auto;
+            max-width: 500px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .btn {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .btn-order {
+            background-color: #198754;
+            color: white;
+        }
+
+        .btn-view {
+            background-color: #0dcaf0;
+            color: white;
+        }
+
+        .btn-manage {
+            background-color: #6f42c1;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏪 Grocery Store Management</h1>
+
+        <!-- Place Order -->
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>🛒 Place Order</h4>
+                <p>Build and save new customer orders easily.</p>
+                <a href="/order" class="btn btn-order">Place Order</a>
+                
+
+            </div>
+        </div>
+
+        <!-- View Orders -->
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>📦 View Orders</h4>
+                <p>Review past orders and their summaries.</p>
+               <a href="/view-orders" class="btn btn-view">View Order Details</a>
+            </div>
+        </div>
+
+        <!-- Manage Products -->
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>🛠️ Manage Products</h4>
+                <p>Edit or remove existing products from inventory.</p>
+                <!-- <a href="/manage-product" class="btn btn-manage">Manage Products</a> -->
+                 <!-- <a href="manage-product.html" class="btn btn-manage">Manage Products</a> -->
+                  <a href="/manage-product" class="btn btn-manage">Manage Products</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="{{ url_for('static', filename='js/packages/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom/dashboard.js') }}"></script>
+</body>
+</html>

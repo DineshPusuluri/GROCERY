@@ -1,0 +1,259 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Orders - Grocery Store</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 30px;
+            background-color: #f8f9fa;
+        }
+        .order-card {
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+        .order-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        table {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🧾 View All Order Details</h2>
+    <div id="ordersContainer"></div>
+
+    <script src="js/packages/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+             $.get('http://127.0.0.1:5050/getOrderDetails', function (orders) {
+ 
+                let container = $('#ordersContainer');
+                if (!orders.length) {
+                    container.append('<p>No orders found.</p>');
+                    return;
+                }
+
+                orders.forEach(order => {
+                    let itemsTable = `
+                        <table class="table table-bordered table-sm">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price pre Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${order.items.map(item => `
+                                    <tr>
+                                        <td>${item.product_name}</td>
+                                        <td>${item.quantity}</td>
+                                        <td>${item.price_pre_unit}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+
+                    let card = `
+                        <div class="order-card">
+                            <div class="order-title">Order #${order.order_id} — ${order.customer_name}</div>
+                            <p><strong>Order Number:</strong> ${order.order_id}</p>
+                            <p><strong>Total:</strong> ₹${order.total}</p>
+                            <p><strong>Date:</strong> ${new Date(order.datetime).toLocaleString()}</p>
+                            <h6>Items Ordered:</h6>
+                            ${itemsTable}
+                        </div>
+                    `;
+
+                    container.append(card);
+                });
+            });
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Orders - Grocery Store</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.shutterstock.com/image-photo/shopping-cart-full-groceries-supermarket-260nw-2159092605.jpg'); /* New grocery cart image */
+            background-size: auto; /* Medium size */
+            background-position: center;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-color: #00ffff; /* Fallback cyan */
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            font-family: 'Roboto', sans-serif;
+        }
+        h2 {
+            background: linear-gradient(45deg, #1a3c34, #2e6b5b); /* Green gradient */
+            color: #fff;
+            font-weight: 900;
+            font-size: 24px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-shadow: 3px 3px 5px #000;
+            border: 2px solid #fff;
+            margin-bottom: 25px;
+        }
+        #ordersContainer {
+            display: flex;
+            flex-direction: row; /* Horizontal layout */
+            flex-wrap: wrap; /* Wrap cards to next line if needed */
+            justify-content: center;
+            gap: 20px; /* Space between cards */
+            width: 100%;
+            max-width: 1200px; /* Wider container for horizontal layout */
+        }
+        .order-card {
+            background-color: rgba(255, 255, 255, 0.98); /* Near-solid white */
+            border: 2px solid #28a745; /* Green border */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Soft green glow */
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 350px; /* Smaller cards for horizontal fit */
+        }
+        .order-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(40, 167, 69, 0.7);
+        }
+        .order-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a3c34; /* Dark green */
+            margin-bottom: 12px;
+        }
+        .order-card p {
+            font-weight: 500;
+            margin: 6px 0;
+            font-size: 13px;
+        }
+        .order-card h6 {
+            font-weight: 600;
+            color: #1a3c34;
+            margin-top: 10px;
+        }
+        table {
+            margin-top: 15px;
+            background-color: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 12px;
+        }
+        .table thead {
+            background-color: #28a745; /* Green header */
+            color: #fff;
+            font-weight: 700;
+        }
+        .table th, .table td {
+            padding: 8px;
+            font-weight: 500;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f1f8f3; /* Light green-gray */
+        }
+        .table tbody tr:hover {
+            background-color: #d4edda; /* Light green hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>🧾 View All Order Details</h2>
+    <div id="ordersContainer"></div>
+
+    <script src="{{ url_for('static', filename='js/packages/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+             $.get('http://127.0.0.1:5051/getOrderDetails', function (orders) {
+                let container = $('#ordersContainer');
+                if (!orders.length) {
+                    container.append('<p style="background-color: rgba(255, 255, 255, 0.98); padding: 15px; border-radius: 8px; font-weight: 500; font-size: 14px;">No orders found.</p>');
+                    return;
+                }
+
+                orders.forEach(order => {
+                    // let itemsTable = `
+                    //     <table class="table table-bordered table-sm">
+                    //         <thead class="thead-light">
+                    //             <tr>
+                    //                 <th>Product Name</th>
+                    //                 <th>Quantity</th>
+                    //                 <th>Price per Unit</th>
+                    //             </tr>
+                    //         </thead>
+                    //         <tbody>
+                    //             ${order.items.map(item => `
+                    //                 <tr>
+                    //                     <td>${item.product_name}</td>
+                    //                     <td>${item.quantity}</td>
+                    //                     <td>${item.price_pre_unit}</td>
+                    //                 </tr>
+                    //             `).join('')}
+                    //         </tbody>
+                    //     </table>
+                    // `;
+                    let itemsTable = `
+    <table class="table table-bordered table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price per Unit</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${order.items.map(item => `
+                <tr>
+                    <td>${item.product_name}</td>
+                    <td>${item.quantity}</td>
+                    <td>₹${item.price_pre_unit.toFixed(2)}</td>
+                    <td>₹${item.subtotal.toFixed(2)}</td>
+                </tr>
+            `).join('')}
+        </tbody>
+    </table>
+`;
+
+
+                    let card = `
+                        <div class="order-card">
+                            <div class="order-title">Order #${order.order_id} — ${order.customer_name}</div>
+                            <p><strong>Order Number:</strong> ${order.order_id}</p>
+                            <p><strong>Total:</strong> ₹${order.total}</p>
+                            <p><strong>Date:</strong> ${new Date(order.datetime).toLocaleString()}</p>
+                            <h6>Items Ordered:</h6>
+                            ${itemsTable}
+                            <p><strong>Grand Total:</strong> ₹${order.grand_total.toFixed(2)}</p>
+                        </div>
+                    `;
+
+                    container.append(card);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

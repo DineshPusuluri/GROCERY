@@ -1,0 +1,304 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title> GSMS </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+
+<body class="tooltips">
+<div class="container">
+
+    <div class="header content rows-content-header">
+        <button class="button-menu-mobile show-sidebar">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav visible-lg visible-md limit-chars">
+                        <ul class="breadcrumb">
+                            <a href="index.html">
+                                <i class="zmdi zmdi-view-dashboard zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Dashboard"></i>
+                            </a>
+                            <a href="manage-product.html">
+                                <i class="zmdi zmdi-assignment zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Products"></i>
+                            </a>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right content-page">
+        <div class="body content rows scroll-y">
+            <form action="" method="post" class="form-horizontal">
+                <div class="box-info full" id="taskFormContainer">
+                    <h2>New Order
+                        <input name="customerName" id="customerName" type="text" class="form-control" placeholder="Customer Name" style="max-width:230px; float: right;margin-top: -11px">
+                    </h2>
+                    <div class="row" style="margin-bottom: 5px;margin-top: -10px;">
+                        <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <label >Product</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label >Price</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <label >Quantity</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label >Total</label>
+                                <button class="btn btn-sm btn-primary pull-right" style="margin-top: -5px" type="button" id="addMoreButton">Add More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-box-extra" id="itemsInOrder">
+
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box-info full p-3 mb-3 mt-0">
+                                <div class="col-sm-9 text-right">
+                                    <span><b>Total</b></span>
+                                </div>
+                                <div class="col-sm-3">
+                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0"></input> Rs</b>
+                                    <button class="btn btn-sm btn-primary pull-right" type="button" id="saveOrder">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="product-box hidden">
+                <div class="row product-item">
+                    <div class="col-sm-12">
+                        <div class="box-info full p-3 mb-3 mt-0">
+                            <div class="col-sm-4">
+                                <select name="product" class="form-control cart-product" style="max-width: 250px"></select>
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="product_price" name="product_price" class="product-price" value="0.0"></input>
+                            </div>
+                            <div class="col-sm-2">
+                                <input name="qty" type="number" min="1" placeholder="" class="form-control product-qty" value="1" style="max-width: 100px">
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="item_total" name="item_total" class="product-total"></input><span> Rs</span>
+                                <button class="btn btn-sm btn-danger pull-right remove-row" type="button">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{{ url_for('static', filename='js/packages/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom/order.js') }}"></script>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GSMS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <style>
+        body {
+            background-image: url('https://th.bing.com/th/id/OIP.w9nWgs_60V3xiFgtibC2-gHaDt?w=312&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+            background-size: auto; 
+            background-position: center;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-color: #00ffff; 
+        }
+        h2 {
+            background: linear-gradient(45deg, #1a3c34, #2e6b5b); 
+            color: #fff;
+            font-weight: 900;
+            font-size: 24px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-shadow: 3px 3px 5px #000;
+            border: 2px solid #fff;
+            margin-bottom: 15px;
+        }
+        .box-info.full {
+            background-color: rgba(255, 255, 255, 0.95); /* Near-white for readability */
+            border: 2px solid #28a745; /* Green border */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Soft green glow */
+        }
+        .product-item {
+            background-color: rgba(255, 255, 255, 0.95); /* Near-white */
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+        }
+        .product-item .col-sm-4,
+        .product-item .col-sm-3,
+        .product-item .col-sm-2 {
+            display: flex;
+            align-items: center;
+        }
+        .product-item input,
+        .product-item select {
+            border: 1px solid #28a745;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button.btn-primary {
+            background-color: #28a745;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-primary:hover {
+            background-color: #218838;
+        }
+        button.btn-danger {
+            background-color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button.btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body class="tooltips">
+<div class="container">
+    <div class="header content rows-content-header">
+        <button class="button-menu-mobile show-sidebar">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav visible-lg visible-md limit-chars">
+                        <ul class="breadcrumb">
+                            <a href="index.html">
+                                <i class="zmdi zmdi-view-dashboard zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Dashboard"></i>
+                            </a>
+                            <a href="manage-product.html">
+                                <i class="zmdi zmdi-assignment zmdi-hc-fw" data-toggle="tooltip" data-placement="bottom" title="Products"></i>
+                            </a>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right content-page">
+        <div class="body content rows scroll-y">
+            <form action="" method="post" class="form-horizontal">
+                <div class="box-info full" id="taskFormContainer">
+                    <h2>New Order
+                        <input name="customerName" id="customerName" type="text" class="form-control" placeholder="Customer Name" style="max-width:230px; float: right; margin-top: -11px">
+                    </h2>
+                    <div class="row" style="margin-bottom: 5px; margin-top: -10px;">
+                        <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <label>Product</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Price</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <label>Quantity</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Total</label>
+                                <button class="btn btn-sm btn-primary pull-right" style="margin-top: -5px" type="button" id="addMoreButton">Add More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-box-extra" id="itemsInOrder">
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box-info full p-3 mb-3 mt-0">
+                                <div class="col-sm-9 text-right">
+                                    <span><b>Total</b></span>
+                                </div>
+                                <div class="col-sm-3">
+                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0"></input> Rs</b>
+                                    <button class="btn btn-sm btn-primary pull-right" type="button" id="saveOrder">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="product-box hidden">
+                <div class="row product-item">
+                    <div class="col-sm-12">
+                        <div class="box-info full p-3 mb-3 mt-0">
+                            <div class="col-sm-4">
+                                <select name="product" class="form-control cart-product" style="max-width: 250px"></select>
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="product_price" name="product_price" class="product-price" value="0.0"></input>
+                            </div>
+                            <div class="col-sm-2">
+                                <input name="qty" type="number" min="1" placeholder="" class="form-control product-qty" value="1" style="max-width: 100px">
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="item_total" name="item_total" class="product-total"></input><span> Rs</span>
+                                <button class="btn btn-sm btn-danger pull-right remove-row" type="button">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{{ url_for('static', filename='js/packages/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/custom/order.js') }}"></script>
+</html>
